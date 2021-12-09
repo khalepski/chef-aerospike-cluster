@@ -53,7 +53,7 @@ tools_package_url = value_for_platform(
     '~> 14.04' => "http://aerospike.com/download/tools/#{node['aerospike']['version']['tools']}/artifact/ubuntu14",
     'default' => "http://aerospike.com/download/tools/#{node['aerospike']['version']['tools']}/artifact/ubuntu12"
   },
-  'debian' => { 'default' => "http://aerospike.com/download/tools/#{node['aerospike']['version']['tools']}/artifact/debian#{node['platform_version']}" },
+  'debian' => { 'default' => "http://aerospike.com/download/tools/#{node['aerospike']['version']['tools']}/artifact/debian#{node['platform_version'].split(".")[0]}}" },
   %w(amazon centos redhat) => { 'default' => "http://aerospike.com/download/tools/#{node['aerospike']['version']['tools']}/artifact/#{node['aerospike']['package_suffix']}" }
 )
 
