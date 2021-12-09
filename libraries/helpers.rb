@@ -28,7 +28,7 @@ end
 
 def tarball_sha256sum(edition, version)
   sha256sums = { 'community' => {}, 'enterprise' => {} }
-  sha256sums['community']['3.6.3'] = 'fb0fb93e64a8559349645f20821193d1f767672bc06c7f0ad1b1b0a4bc40a7f2'
+  sha256sums['community']['5.7.0.8'] = 'a86155a171be0bb8b5ef460799406e099342b70ca6e7c41b4102199868aa19c9'
   sha256sum = sha256sums[edition][version]
   raise "sha256sum is missing for aerospike tarball edition #{edition} version #{version}" unless sha256sum
   sha256sum
@@ -46,6 +46,7 @@ def package_sha256sum(edition, version, os)
       'ubuntu12.04' => {},
       'debian6' => {},
       'debian7' => {},
+      'debian10' => {},
       'el6' => {}
     }
   }
@@ -58,6 +59,7 @@ def package_sha256sum(edition, version, os)
   sha256sums['enterprise']['ubuntu12.04']['3.6.3'] = 'ef9e97b3ba52468a4ecb816b7f4315704ead09269c6d21e952e6aafebc758c61'
   sha256sums['enterprise']['debian6']['3.6.3'] = 'daab59ac2157c7f4a69cc7bf73bfeacc09c0d5672880884faebb4228b7538b6a'
   sha256sums['enterprise']['debian7']['3.6.3'] = 'e15f5c5f8d6df56dfd9a4bea56cc0ad748dffffb3bfc82d9bbfd5280901321d3'
+  sha256sums['enterprise']['debian10']['5.7.0.8'] = 'cb3e0c376ae4be9253fa4e44a005599684bf2aec66211fae87edab20b56eed0a'
   sha256sums['enterprise']['el6']['3.6.3'] = '7916da7af3347e85a6839d4bbf69e58a6dce2a89297c421a5cf4ddc596b7c844'
 
   sha256sum = sha256sums[edition][os][version]
@@ -73,6 +75,12 @@ def tools_sha256sum(edition, version, os)
       'debian8' => {},
       'el6' => {},
       'el7' => {}
+    },
+    'enterprise' => {
+      'ubuntu12' => {},
+      'debian6' => {},
+      'debian10' => {},
+      'el6' => {}
     }
   }
 
@@ -81,6 +89,7 @@ def tools_sha256sum(edition, version, os)
   sha256sums['community']['debian8']['3.10.2'] = '5a1714b982bf5a01b299a2c686b484a53997ef6bc9619473fcb89eff93a22fef'
   sha256sums['community']['el6']['3.10.2'] = 'a631cdb02874c982fe0e045a96891219474c383ec87c09233a9bd84062d7dc5b'
   sha256sums['community']['el7']['3.10.2'] = '9889fd4ed441e238b0c74484c374f843a0fab77366f933afa2de5e514c1347a4'
+  sha256sums['enterprise']['debian10']['6.1.2'] = '222aa9de2dd925eacd9289bc77945015a5206aa082936943e40c4e58f08d6300'
 
   sha256sum = sha256sums[edition][os][version]
   raise "sha256sum is missing for aerospike package edition #{edition} version #{version} os #{os}" unless sha256sum
