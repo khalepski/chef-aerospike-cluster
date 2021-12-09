@@ -24,7 +24,7 @@ package_suffix = value_for_platform_family(
 
 package_url_suffix = value_for_platform(
   'ubuntu' => { 'default' => 'ubuntu12' },
-  'debian' => { 'default' => 'debian6' },
+  'debian' => { 'default' => 'debian10' },
   %w(amazon centos redhat) => { 'default' => 'el6' }
 )
 
