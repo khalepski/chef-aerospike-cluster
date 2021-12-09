@@ -1,11 +1,11 @@
-default['aerospike']['version']['server'] = '3.10.1.1'
-default['aerospike']['version']['tools'] = '3.10.2'
-default['aerospike']['version']['amc'] = '3.6.13'
+default['aerospike']['version']['server'] = '5.7.0.8'
+default['aerospike']['version']['tools'] = '6.1.2'
+default['aerospike']['version']['amc'] = '5.7.0.8'
 
 default['aerospike']['tarball_purge'] = false
 
-default['aerospike']['install_method'] = 'tarball' # options: tarball
-default['aerospike']['install_edition'] = 'community' # options: community, enterprise
+default['aerospike']['install_method'] = 'package' # options: tarball
+default['aerospike']['install_edition'] = 'enterprise' # options: community, enterprise
 
 default['aerospike']['enterprise']['username'] = nil
 default['aerospike']['enterprise']['password'] = nil
@@ -30,7 +30,7 @@ default['aerospike']['server_package_url'] = 'auto'
 default['aerospike']['tools_package_url'] = 'auto'
 default['aerospike']['package_suffix'] = value_for_platform(
   'ubuntu' => { '~> 14.04' => 'ubuntu14.04', 'default' => 'ubuntu12.04' },
-  'debian' => { 'default' => "debian#{node['platform_version']}" },
+  'debian' => { 'default' => "debian#{node['platform_version'].split(".")[0]}" },
   %w(amazon centos redhat) => { '~> 7.0' => 'el7', 'default' => 'el6' }
 )
 
